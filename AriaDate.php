@@ -18,16 +18,15 @@ class AriaDate
     {
         return (int)($a / $b);
     }
-    function gregorian_to_jalali($newformat,$str=null)
+    function gregorian_to_jalali($gDate,$str=null)
     {
-
-        $newformat = $this->gregorian_to_jalali_main(substr($newformat, 0, 4), substr($newformat, 5, 2), substr($newformat, 8, 2), $str);
+        $newformat = $this->gregorian_to_jalali_main(substr($gDate, 0, 4), substr($gDate, 5, 2), substr($gDate, 8, 2), $str);
         return $newformat;
     }
-    function jalali_to_gregorian($newformat,$str=null)
+    function jalali_to_gregorian($jDate,$str=null)
     {
 
-        $newformat = $this->jalali_to_gregorian_main(substr($newformat, 0, 4), substr($newformat, 5, 2), substr($newformat, 8, 2), $str);
+        $newformat = $this->jalali_to_gregorian_main(substr($jDate, 0, 4), substr($jDate, 5, 2), substr($jDate, 8, 2), $str);
         $date = strtotime($newformat);
         $newformat = date('Y-m-d', $date);
         return $newformat;
